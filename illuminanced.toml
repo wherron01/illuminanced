@@ -3,20 +3,21 @@
 log_to = "syslog"
 pid_file = "/var/run/illuminanced.pid"
 # log_level = "OFF", "ERROR", "WARN", "INFO", "DEBUG", "TRACE"
-log_level = "ERROR"
+log_level = "INFO"
 
 [general]
 check_period_in_seconds = 1
-light_steps = 10
-min_backlight = 70
+light_steps = 14
+min_backlight = 0
 step_barrier = 0.1
-max_backlight_file = "/sys/class/backlight/intel_backlight/max_brightness"
-backlight_file = "/sys/class/backlight/intel_backlight/brightness"
-illuminance_file = "/sys/bus/acpi/devices/ACPI0008:00/iio:device0/in_illuminance_raw"
+max_backlight_file = "/sys/class/backlight/amdgpu_bl1/max_brightness"
+backlight_file = "/sys/class/backlight/amdgpu_bl1/brightness"
+illuminance_file = "/sys/bus/iio/devices/iio:device0/in_illuminance_raw"
 event_device_mask = "/dev/input/event*"
-event_device_name = "Asus WMI hotkeys"
+event_device_name = "Framework Laptop 16 Keyboard Module - ANSI Keyboard"
 enable_max_brightness_mode = true
 filename_for_sensor_activation = ""
+keybind = 134
 
 [kalman]
 q = 1
@@ -24,23 +25,46 @@ r = 20
 covariance = 10
 
 [light]
-points_count = 6
+points_count = 14
 
 illuminance_0 = 0
 light_0 = 0
 
-illuminance_1 = 20
+illuminance_1 = 1
 light_1 = 1
 
-illuminance_2 = 300
-light_2 = 3
+illuminance_2 = 2
+light_2 = 2
 
-illuminance_3 = 700
-light_3 = 4
+illuminance_3 = 4
+light_3 = 3
 
-illuminance_4 = 1100
-light_4 = 5
+illuminance_4 = 8
+light_4 = 4
 
-illuminance_5 = 7100
-light_5 = 10
+illuminance_5 = 16
+light_5 = 5
 
+illuminance_6 = 32
+light_6 = 6
+
+illuminance_7 = 64
+light_7 = 7
+
+illuminance_8 = 128
+light_8 = 8
+
+illuminance_9 = 256
+light_9 = 9
+
+illuminance_10 = 512
+light_10 = 10
+
+illuminance_11 = 1024
+light_11 = 11
+
+illuminance_12 = 2048
+light_12 = 12
+
+illuminance_13 = 4096
+light_13 = 13

@@ -1,0 +1,1 @@
+RUST_LOG=debug ~/illuminanced/target/release/illuminanced -c ~/illuminanced/illuminanced.toml -d

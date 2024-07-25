@@ -93,6 +93,11 @@ impl Config {
             .unwrap_or("/sys/bus/acpi/devices/ACPI0008:00/iio:device0/in_illuminance_raw")
     }
 
+	pub fn keybind(&self) -> u16 {
+		self.get_u16("general", "keybind")
+			.unwrap_or(0x230)
+	}
+
     pub fn light_points(&self) -> Result<Vec<LightPoint>, ErrorCode> {
         if self.table.is_none() {
             return Ok(self.default_ligth_points());
@@ -148,6 +153,12 @@ impl Config {
         self.get_table_val(table_name, name)
             .and_then(|v| v.as_str())
     }
+
+	fn get_u16(&self, table_name: &str, name: &str) -> Option<u16> {
+		self.get_table_val(table_name, name)
+			.and_then(|v| v.as_integer())
+			.map(|i| i as u16)
+	}
 
     fn get_u32(&self, table_name: &str, name: &str) -> Option<u32> {
         self.get_table_val(table_name, name)
